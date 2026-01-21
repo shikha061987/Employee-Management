@@ -1,0 +1,97 @@
+<mat-toolbar color="primary" class="toolbar">
+  <span class="title">Employee Management System</span>
+</mat-toolbar>
+
+<div class="main-body">
+
+  <!-- FILTER + ADD BUTTON -->
+  <div class="filter-action-row">
+    <mat-form-field appearance="outline" class="filter-field">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Stan Lee" #input>
+    </mat-form-field>
+
+    <button mat-raised-button color="accent" class="add-btn" (click)="openAddEditEmpForm()">
+      ADD EMPLOYEE
+    </button>
+  </div>
+
+  <!-- DESKTOP TABLE -->
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 responsive-table desktop-only">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+      <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>First Name</th>
+      <td mat-cell *matCellDef="let row">{{ row.firstName }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</th>
+      <td mat-cell *matCellDef="let row">{{ row.lastName }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+      <td mat-cell *matCellDef="let row">{{ row.email }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="dob">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>DOB</th>
+      <td mat-cell *matCellDef="let row">{{ row.dob | date }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Gender</th>
+      <td mat-cell *matCellDef="let row">{{ row.gender }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let row">
+        <button mat-icon-button color="primary" (click)="openEditEmpForm(row)"><mat-icon>edit</mat-icon></button>
+        <button mat-icon-button color="warn" (click)="deleteEmployee(row.id)"><mat-icon>delete</mat-icon></button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="100%">No data matching "{{ input.value }}"</td>
+    </tr>
+  </table>
+
+  <!-- MOBILE CARDS -->
+  <div class="mobile-only">
+
+<div class="mobile-card " *ngFor="let row of pagedMobileData">
+
+      <div><strong>  ID:</strong> {{ row.id }}</div>
+      <div><strong>  First Name:</strong> {{ row.firstName }}</div>
+      <div><strong>  Last Name:</strong> {{ row.lastName }}</div>
+      <div><strong>  Email:</strong> {{ row.email }}</div>
+      <div><strong>  DOB:</strong> {{ row.dob | date }}</div>
+      <div><strong>  Gender:</strong> {{ row.gender }}</div>
+      <div class="action-buttons">
+        <button mat-icon-button color="primary" (click)="openEditEmpForm(row)"><mat-icon>edit</mat-icon></button>
+        <button mat-icon-button color="warn" (click)="deleteEmployee(row.id)"><mat-icon>delete</mat-icon></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGINATOR -->
+<!-- <mat-paginator
+  [pageSize]="10"
+  [pageSizeOptions]="[10, 25, 50, 100]"
+  showFirstLastButtons>
+</mat-paginator>-->
+ <mat-paginator
+  [pageSize]="5"
+  [pageSizeOptions]="[5, 10, 15, 20, 25,50,100]"
+  showFirstLastButtons>
+</mat-paginator>
+</div>

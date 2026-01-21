@@ -1,0 +1,159 @@
+/* =========================
+   TOOLBAR
+========================= */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 16px;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #1976d2;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.toolbar span.title {
+  font-size: 22px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.toolbar button {
+  margin: 8px 0;
+}
+
+.spacer { flex: 1; }
+
+/* =========================
+   FILTER + BUTTON
+========================= */
+
+.filter-action-row {
+  display: flex;
+  align-items: flex-start;  /* align items to top */
+  gap: 12px;
+  padding: 0 16px;
+  margin: 16px 0;
+  flex-wrap: wrap;
+}
+
+/* Filter field adjustments */
+.filter-field {
+  flex: 1;
+  max-width: 300px;
+}
+
+.filter-field .mat-form-field-wrapper {
+  padding: 0;             /* remove top/bottom padding */
+}
+
+.filter-field .mat-form-field-infix {
+  height: 36px;            /* same height as button */
+  display: flex;
+  align-items: center;     /* center input text vertically */
+}
+
+.filter-field input {
+  height: 100%;
+  padding: 0 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* Add Employee button */
+.add-btn {
+  height: 36px;            /* same height as filter field */
+  line-height: 36px;       /* vertically center text */
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+/* =========================
+   TABLE
+========================= */
+.responsive-table { width: 100%; border-collapse: collapse; }
+th.mat-header-cell, td.mat-cell { padding: 8px; text-align: left; }
+.action-buttons button { margin-right: 4px; }
+
+/* =========================
+   MOBILE CARDS
+========================= */
+.mobile-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 12px;
+  background: #fff;
+}
+
+.mobile-card div {
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.action-buttons { display: flex; gap: 8px; }
+
+/* =========================
+   RESPONSIVE HIDE/SHOW
+========================= */
+.desktop-only { display: table; }
+.mobile-only { display: none; }
+
+@media (max-width: 768px) {
+  .desktop-only { display: none; }
+  .mobile-only { display: block; }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 8px 12px;
+  }
+
+  .toolbar span.title { font-size: 18px; margin-bottom: 8px; }
+  .toolbar button { width: 100%; }
+
+  .filter-action-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 0 16px;
+  }
+
+  .filter-field { max-width: 100%; }
+  .add-btn { width: 100%; }
+}
+/* =========================
+   PAGINATOR
+========================= */
+.paginator {
+  display: flex;
+  justify-content: center;
+  padding: 12px 16px;
+  background: #fff;
+}
+
+/* force paginator visible on mobile */
+@media (max-width: 768px) {
+  .paginator {
+    display: flex !important;
+    width: 100%;
+  }
+
+  mat-paginator {
+    display: flex !important;
+  }
+}
+.main-body {
+  min-height: 100vh;
+  overflow-y: auto;
+}
+@media (max-width: 768px) {
+  .mobile-card {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+}
