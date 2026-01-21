@@ -9,15 +9,20 @@ The Employee Management System is a robust Angular application designed to strea
 - **Pagination:** Navigate through large datasets with ease using pagination functionality.
 - **Filter and Search:** Efficiently filter and search for specific employees based on criteria like name, designation, or department.
 
-## Deployment
+git add src/assets/projectscreenshot1.png
 
-The backend server is deployed through [Render](https://render.com) to ensure high performance and reliability. The Angular application itself is deployed using GitHub Pages, making it easily accessible to users.
+
+## Screenshots
+![Portfolio Screenshot](https://github.com/shikha061987/Employee-Management/raw/main/src/assets/projectscreenshot1.png)
+![Portfolio Screenshot](https://github.com/shikha061987/Employee-Management/raw/main/src/assets/projectscreenshot2.png)
+![Portfolio Screenshot](https://github.com/shikha061987/Employee-Management/raw/main/src/assets/projectscreenshot3.png)
+
 
 ## Getting Started
 
 To get started with the Employee Management System:
 
-1. Clone the repository: `git clone https://github.com/Pa1mekala37/Employee-Management-System-Angular.git`
+1. Clone the repository: `git clone https://github.com/shikha061987/Employee-Management`
 2. Install the necessary dependencies: `npm install`
 3. Run the application locally: `ng serve`
 4. Access the application in your browser at `http://localhost:4200`
@@ -26,14 +31,59 @@ To get started with the Employee Management System:
 
 Contributions are welcome! If you find any issues or have suggestions for improvement, please feel free to open an issue or submit a pull request.
 
-## License
+## Development server
 
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+To start a local development server, run:
 
-## Contact
+```bash
+ng serve
 
-For any inquiries or further information, please reach out to:
+```
 
-- [LinkedIn](www.linkedin.com/in/pavan-mekala-5233b1202)
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-We appreciate your interest and support in the Employee Management System!
+## Code scaffolding
+
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+
+```bash
+ng generate component component-name
+```
+
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+
+```bash
+ng generate --help
+```
+
+## Building
+
+To build the project run:
+
+```bash
+ng build
+```
+
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+## Running unit tests
+
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+
+```bash
+ng test
+```
+
+## Running end-to-end tests
+
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
